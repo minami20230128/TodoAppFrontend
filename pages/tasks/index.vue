@@ -3,8 +3,8 @@ import TaskList from '~/components/TaskList.vue';
 </script>
 
 <template>
-  <div class="container">
-    <h1>My Todo App</h1>
+  <div>
+    <!-- TaskList コンポーネントを呼び出すだけ -->
     <TaskList />
   </div>
 </template>
