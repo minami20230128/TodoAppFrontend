@@ -1,7 +1,13 @@
 <script setup>
-import { useTasks } from '~/composables/useTasks';
+import { useRouter } from '#imports'
+import { useTasks } from '~/composables/useTasks'
 
 const { tasks, loading, error } = useTasks()
+const router = useRouter()
+
+function goToDetail(taskId) {
+    router.push(`/tasks/${taskId}`)
+}
 </script>
 
 <template>
@@ -11,9 +17,9 @@ const { tasks, loading, error } = useTasks()
         <div v-if="error">Error: {{ error }}</div>
 
         <li v-for="task in tasks" :key="task.id">
-            <NuxtLink :to="`/tasks/detail/${task.id}`">
-                {{ task.title }}
-            </NuxtLink>
+            <button @click="goToDetail(task.id)" class="text-blue-500 underline">
+            {{ task.title }}
+            </button>
         </li>
     </div>
 </template>
